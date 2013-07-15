@@ -35,6 +35,11 @@
 	--    standard month calendar. Each day should contain a count of the number
 	--    of events that date, or remain blank if no event occurs.
 	SELECT * FROM crosstab(
-	'SELECT extract(month from starts) as month, 
-    div(extract (day from starts)::int, 7) + 1 as week, count(*) FROM events GROUP BY month, week ORDER BY month, week',
-	'SELECT * FROM generate_series(1, 5)') AS (month int,week_1 int, week_2 int, week_3 int, week_4 int, week_5 int) ORDER BY MONTH;
+	'SELECT extract(week from generate_series::date) as week, NULL as dow, NULL as count FROM generate_series(''2012-01-01'', ''2012-01-31'', interval ''1 week'')
+	UNION
+	SELECT extract(day from starts) as day, 
+    div(extract (day from starts)::int, 7) as dayPosition, count(*) FROM events GROUP BY day, dayPosition;',
+	'SELECT * FROM generate_series(0, 6)') AS (day int, sunday int, monday int, tuesday int, wednesday int, thursday int, friday int, saturday int) ORDER BY DAY;
+
+
+/* Day 3: Fulltext and Multidimensions */

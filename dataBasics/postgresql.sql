@@ -1,7 +1,7 @@
 /* Day 1: Relations, CRUD, and Joins */
 
 	-- 1. Select all tables we created (and only those) from pg_class.
-	SELECT * FROM pg_catalog.pg_tables WHERE tableowner = 'admios';
+	SELECT relname FROM pg_class WHERE relname not LIKE '%\_%' AND relkind = 'r';
 
 	-- 2. Whrite a query that finds the country name of the “LARP Club” event.
 	SELECT country_name FROM events e
@@ -43,3 +43,4 @@
 
 
 /* Day 3: Fulltext and Multidimensions */
+	

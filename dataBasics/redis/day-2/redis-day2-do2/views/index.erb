@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Shortlink</title>
+	</head>
+	<body>
+		<div class="container">
+			<h1>shortlink</h1>
+			<form method="post">
+				<input type="text" value="<%= h(params[:url]) %>" name="url" id="url" />
+				<input type="submit" value="shorten" id="submit" />
+			</form>
+			<div class="clear"></div>
+			<% if @shortcode %>
+			<div class="result">
+				Your shortened URL is:
+				<a href="http://redis-do2.com/<%= @shortcode %>">http://redis-do2.com/<%= @shortcode %></a>
+			</div>
+			<% end %>
+		</div>
+	</body>

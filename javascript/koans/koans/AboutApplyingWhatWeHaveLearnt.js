@@ -35,19 +35,19 @@ describe("About Applying What We Have Learnt", function() {
     expect(productsICanEat.length).toBe(1);
   });
 
-  /*it("given I'm allergic to nuts and hate mushrooms, it should find a pizza I can eat (functional)", function () {
+  it("given I'm allergic to nuts and hate mushrooms, it should find a pizza I can eat (functional)", function () {
 
       var productsICanEat = [];
 
-      /* solve using filter() & all() / any()
-      _.filter(products,function(pizzas) {
-        _(pizzas.containsNuts).any(function() {
-          console.log(pizza);
-         
-        });
+      /* solve using filter() & all() / any()*/
+      var withoutNuts =_.filter(products,function(pizzas) { 
+        return !pizzas.containsNuts ; 
+      });
+      _.any(withoutNuts,function(item){
+       if (!_.contains(item.ingredients, 'mushrooms')) { productsICanEat.push(item); };
       });
       expect(productsICanEat.length).toBe(1);
-  });*/
+  });
 
   /*********************************************************************************/
 
@@ -86,14 +86,14 @@ describe("About Applying What We Have Learnt", function() {
     var ingredientCount = { "{ingredient name}": 0 };
 
     /* chain() together map(), flatten() and reduce() */
-    _.chain(products['ingredients'])
-    .map(function(value) { return ingredientCount.value } )
-    .flatten()
-    .reduce(function(counts, word) {
-      counts[word] = (counts[word] || 0) + 1;
-      return counts;
-    }, {});
-    console.log(ingredientCount);
+    var ingredientCount = _(products).chain()
+                          .map(function(value) { return value.ingredients; } )
+                          .flatten()
+                          .reduce(function(memo, num) { 
+                            memo[num] = (memo[num] || 0) +1;
+                            return memo;
+                          },{})
+                          .value();
 
     expect(ingredientCount['mushrooms']).toBe(2);
   });

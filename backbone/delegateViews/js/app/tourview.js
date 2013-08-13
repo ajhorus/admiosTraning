@@ -7,7 +7,7 @@ App.Views.TourView = Backbone.View.extend({
   render: function() {
     var html = this.template({});
     this.tourElemntsView =  new App.Views.TourElemntsView({collection:this.collection, el: $('#app')});
-    this.tourElemntsView.render();
+    this.tourElemntsView.showTours();
     this.$el.html(html);
     return this
   }

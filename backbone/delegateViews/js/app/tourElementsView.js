@@ -10,12 +10,11 @@ App.Views.TourElemntsView = Backbone.View.extend({
     "<li><%= name %></li>"
   ),
 
-  render: function() {
+  showTours: function() {
     var html = this.template({
       tours: this.collection.toJSON(),
       tourTemplate: this.tourTemplate
     });
     this.$el.html(html);
-    return this
   }
 });

@@ -1,5 +1,5 @@
-App.Views.TourView = Backbone.View.extend({  
-  template: _.template(
+App.Views.TourElemntsView = Backbone.View.extend({
+	template: _.template(
     "<ul> \
       <% $.each(tours,function(key,name) { %> \
         <%= tourTemplate(name) %> \

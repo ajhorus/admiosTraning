@@ -1,0 +1,1 @@
+App.Models.Tour = Backbone.Model.extend({});

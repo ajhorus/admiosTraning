@@ -1,0 +1,17 @@
+<div>
+  <h1>Twitter-Copy</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="span3"> 
+    <%= form_tag("/posts/create", :remote => true, :id => "tweet_form") do%>
+        <%= text_area "post", "body", :cols => 40, :rows => 5, :placeholder => "Tweet...", :maxlength => "140", :required => true, :id => "tweet_text"  %>
+        <br/> <%= submit_tag "tweet...", :class => "btn btn-info" %>
+      <% end %>
+    </div>
+    <div class="span9 overflow" style="max-height: 320px; overflow-y: auto;">
+      <%= render "tweets" %>
+    </div>
+  </div>
+</div>
+<%= image_tag "/app/assets/images/ajax-loader.gif", :id =>"loading-indicator", :style =>"display:block" %>

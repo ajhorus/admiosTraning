@@ -1,0 +1,23 @@
+<h1>List of user</h1>
+<table class="table table-striped">
+  <tr>
+    <th>User</th>
+    <th>Provider</th>
+    <th>Uid</th>
+    <th>Action</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user[0]['email'] %></td>
+    <% if (user[1].class != 'String') %>
+      <td><%= user[1]['provider'] %></td>
+      <td><%= user[1]['uid'] %></td>
+    <% else %>
+      <td><%= No account associated %></td>
+      <td>No account associated</td>
+    <% end %>
+    <td><%= link_to "Delete", "destroy/#{user[0]['id']}", confirm: 'Are you sure?', :class => "btn btn-danger btn-mini" %></td>
+  </tr>
+<% end %>
+</table>

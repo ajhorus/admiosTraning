@@ -1,0 +1,30 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1379528506.9942827:@value{I"
+class:EFI"BundledAsset;
+FI"id;
+F"%4ea7f038bb5df46ccc781aecd57bd991I"logical_path;
+FI"authentications.js;
+TI"pathname;
+FI";$root/app/assets/javascripts/authentications.js.coffee;
+TI"content_type;
+FI"application/javascript;
+FI"
+mtime;
+FI"2013-09-18T13:15:27-05:00;
+FI"	body;
+FI"$(function() {
+
+
+}).call(this);
+;
+TI"asset_paths;
+F[I";$root/app/assets/javascripts/authentications.js.coffee;
+TI"dependency_paths;
+F[{I"	path;
+FI";$root/app/assets/javascripts/authentications.js.coffee;
+TI"
+mtime;
+FIu:	TimeRb€²o¸=
+:@_zoneI"EST;
+T:nano_numiã:nano_deni:submicro"H0:offsetiþ°¹I"hexdigest;
+F"%f50e3d51579225e3370988d160060f33I"_version;
+F"%0868aba5d4b750d3a9421721ea3d9b9c
